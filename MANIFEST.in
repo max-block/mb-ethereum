@@ -1,1 +1,1 @@
-recursive-include mb_eth *.py *.yml *.toml
+recursive-include mb_ethereum *.py *.yml *.toml
