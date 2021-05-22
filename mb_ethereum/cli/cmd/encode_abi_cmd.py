@@ -1,7 +1,7 @@
 import click
 import yaml
 
-from mb_eth.eth import eth_abi
+from mb_ethereum.eth import eth_abi
 
 
 @click.command(name="encode-abi", help="Encode API for data: types and args")

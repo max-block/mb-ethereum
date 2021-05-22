@@ -7,9 +7,9 @@ from halo import Halo
 from mb_commons import ParallelTasks, str_to_list
 from pydantic import StrictStr, validator
 
-from mb_eth.cli.helpers import BaseCmdConfig, fatal, parse_config, print_config_and_exit, print_json
-from mb_eth.datawrapper import etherscan_web
-from mb_eth.eth import eth_erc20, eth_rpc
+from mb_ethereum.cli.helpers import BaseCmdConfig, fatal, parse_config, print_config_and_exit, print_json
+from mb_ethereum.datawrapper import etherscan_web
+from mb_ethereum.eth import eth_erc20, eth_rpc
 
 TIMEOUT = 10
 

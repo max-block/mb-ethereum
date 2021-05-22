@@ -1,6 +1,6 @@
 import json
 
-from mb_eth.eth.eth_abi import (
+from mb_ethereum.eth.eth_abi import (
     decode_function_input,
     decode_single,
     encode_function_input,

@@ -8,7 +8,7 @@ from eth_utils import decode_hex
 from eth_utils import is_address as is_address_
 from mb_commons import Result
 
-from mb_eth.eth import eth_rpc
+from mb_ethereum.eth import eth_rpc
 
 key_api = KeyAPI()
 

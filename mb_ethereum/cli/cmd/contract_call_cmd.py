@@ -2,8 +2,8 @@ import click
 import yaml
 from pydantic import StrictStr
 
-from mb_eth.cli.helpers import BaseCmdConfig, file_validator, parse_config, print_config_and_exit
-from mb_eth.eth import eth_abi, eth_rpc
+from mb_ethereum.cli.helpers import BaseCmdConfig, file_validator, parse_config, print_config_and_exit
+from mb_ethereum.eth import eth_abi, eth_rpc
 
 
 class Config(BaseCmdConfig):

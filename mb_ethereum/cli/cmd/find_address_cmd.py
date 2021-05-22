@@ -3,8 +3,8 @@ from pathlib import Path
 import click
 import pydash
 
-from mb_eth.cli.helpers import fatal
-from mb_eth.eth import eth_utils
+from mb_ethereum.cli.helpers import fatal
+from mb_ethereum.eth import eth_utils
 
 
 @click.command(name="find-address", help="Find ethereum addresses in a path")

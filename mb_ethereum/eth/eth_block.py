@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 from mb_commons import Result, md
 
-from mb_eth.eth import eth_rpc
+from mb_ethereum.eth import eth_rpc
 
 
 @dataclass

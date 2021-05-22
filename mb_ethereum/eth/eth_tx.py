@@ -8,7 +8,7 @@ from rlp.sedes import Binary, big_endian_int, binary
 from web3 import Web3
 from web3.auto import w3
 
-from mb_eth.eth.eth_utils import hex_to_bytes
+from mb_ethereum.eth.eth_utils import hex_to_bytes
 
 
 class SignedTx(BaseModel):

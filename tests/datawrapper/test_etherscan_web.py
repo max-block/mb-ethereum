@@ -1,6 +1,6 @@
 import pytest
 
-from mb_eth.datawrapper import etherscan_web
+from mb_ethereum.datawrapper import etherscan_web
 
 
 @pytest.mark.web

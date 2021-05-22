@@ -1,6 +1,6 @@
 import click
 
-from mb_eth.cli.helpers import shell_command
+from mb_ethereum.cli.helpers import shell_command
 
 
 @click.command(name="solc", help="Compile a solidity file")

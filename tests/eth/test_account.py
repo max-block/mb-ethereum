@@ -1,6 +1,6 @@
 import pytest
 
-from mb_eth.eth import eth_account
+from mb_ethereum.eth import eth_account
 
 
 def test_is_valid_private_key(address_0, private_0):

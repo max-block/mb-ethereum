@@ -2,7 +2,7 @@ from decimal import Decimal
 
 import pytest
 
-from mb_eth.eth import eth_utils
+from mb_ethereum.eth import eth_utils
 
 
 def test_to_wei():

@@ -3,8 +3,8 @@ from typing import Tuple
 import click
 from click import Context
 
-from mb_eth import __version__
-from mb_eth.cli.cmd import (
+from mb_ethereum import __version__
+from mb_ethereum.cli.cmd import (
     account_cmd,
     cancel_cmd,
     contract_call_cmd,

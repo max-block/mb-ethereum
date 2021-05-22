@@ -8,8 +8,8 @@ from eth_utils import to_bytes, to_hex
 from mb_commons import Result
 from web3 import Web3
 
-from mb_eth.eth import eth_abi, eth_rpc
-from mb_eth.eth.eth_utils import hex_to_bytes
+from mb_ethereum.eth import eth_abi, eth_rpc
+from mb_ethereum.eth.eth_utils import hex_to_bytes
 
 TRANSFER_METHOD = "0xa9059cbb"
 TRANSFER_TOPIC = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"

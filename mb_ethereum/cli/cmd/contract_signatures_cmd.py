@@ -2,8 +2,8 @@ import json
 
 import click
 
-from mb_eth.cli.helpers import print_json
-from mb_eth.eth import eth_abi
+from mb_ethereum.cli.helpers import print_json
+from mb_ethereum.eth import eth_abi
 
 
 @click.command(name="contract-signatures", help="Print all contract signatures")

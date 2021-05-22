@@ -1,8 +1,8 @@
 import click
 import pydash
 
-from mb_eth.cli.helpers import print_json
-from mb_eth.eth import eth_tx, eth_utils
+from mb_ethereum.cli.helpers import print_json
+from mb_ethereum.eth import eth_tx, eth_utils
 
 
 @click.command(name="decode-raw-tx", help="Decode a raw tx hex")

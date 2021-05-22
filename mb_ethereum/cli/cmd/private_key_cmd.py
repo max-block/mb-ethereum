@@ -1,6 +1,6 @@
 import click
 
-from mb_eth.eth import eth_account
+from mb_ethereum.eth import eth_account
 
 
 @click.command(name="private-key", help="Print address for a private key")

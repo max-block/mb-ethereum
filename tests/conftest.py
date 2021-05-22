@@ -141,7 +141,7 @@ def ganache_port():
 
 @pytest.fixture
 def cli():
-    from mb_eth.cli import cli as mb_eth_cli
+    from mb_ethereum.cli import cli as mb_ethereum_cli
 
     def _cli(module: str, *params, json_output=True, node_port=None):
         runner = CliRunner()
@@ -149,7 +149,7 @@ def cli():
         if node_port:
             args = ["-n", f"http://localhost:{node_port}", *args]
 
-        res = runner.invoke(mb_eth_cli, args)
+        res = runner.invoke(mb_ethereum_cli, args)
         return json.loads(res.output) if json_output else res.output
 
     return _cli

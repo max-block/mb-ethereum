@@ -26,10 +26,10 @@ def load_requirements(f_name: str) -> list:
 
 
 setuptools.setup(
-    name="mb-eth",
-    version=find_version("mb_eth/__init__.py"),
+    name="mb-ethereum",
+    version=find_version("mb_ethereum/__init__.py"),
     python_requires=">=3.9",
-    packages=["mb_eth"],
+    packages=["mb_ethereum"],
     install_requires=[
         "click==8.0.1",
         "click-aliases==1.0.1",
@@ -57,6 +57,6 @@ setuptools.setup(
             "python-dotenv==0.17.1",
         ],
     },
-    entry_points={"console_scripts": ["mb-eth = mb_eth.cli:cli"]},
+    entry_points={"console_scripts": ["mb-ethereum = mb_ethereum.cli:cli"]},
     include_package_data=True,
 )

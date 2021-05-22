@@ -5,8 +5,8 @@ import pydash
 import yaml
 from pydantic import StrictStr, validator
 
-from mb_eth.cli.helpers import BaseCmdConfig, file_validator, get_nonce_or_exit, parse_config, print_json
-from mb_eth.eth import eth_abi, eth_account, eth_rpc, eth_tx, eth_utils
+from mb_ethereum.cli.helpers import BaseCmdConfig, file_validator, get_nonce_or_exit, parse_config, print_json
+from mb_ethereum.eth import eth_abi, eth_account, eth_rpc, eth_tx, eth_utils
 
 
 class Config(BaseCmdConfig):

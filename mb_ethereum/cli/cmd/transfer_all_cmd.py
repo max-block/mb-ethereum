@@ -5,9 +5,9 @@ import pydash
 from mb_commons import md, str_to_list
 from pydantic import StrictStr, validator
 
-from mb_eth.cli.helpers import BaseCmdConfig, fatal, parse_config, print_json
-from mb_eth.eth import eth_account, eth_rpc, eth_tx, eth_utils
-from mb_eth.eth.eth_tx import SignedTx
+from mb_ethereum.cli.helpers import BaseCmdConfig, fatal, parse_config, print_json
+from mb_ethereum.eth import eth_account, eth_rpc, eth_tx, eth_utils
+from mb_ethereum.eth.eth_tx import SignedTx
 
 
 class Config(BaseCmdConfig):

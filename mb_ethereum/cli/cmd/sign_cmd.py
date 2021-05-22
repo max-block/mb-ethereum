@@ -3,8 +3,8 @@ from typing import Optional
 import click
 from pydantic import Field, StrictStr, validator
 
-from mb_eth.cli.helpers import BaseCmdConfig, parse_config, print_config_and_exit, print_json
-from mb_eth.eth import eth_account, eth_tx, eth_utils
+from mb_ethereum.cli.helpers import BaseCmdConfig, parse_config, print_config_and_exit, print_json
+from mb_ethereum.eth import eth_account, eth_tx, eth_utils
 
 
 class Config(BaseCmdConfig):

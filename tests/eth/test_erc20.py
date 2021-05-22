@@ -1,6 +1,6 @@
 import pytest
 
-from mb_eth.eth import eth_erc20
+from mb_ethereum.eth import eth_erc20
 
 pytestmark = pytest.mark.infura
 

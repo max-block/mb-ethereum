@@ -2,7 +2,7 @@ from datetime import date, datetime, timedelta
 
 import pytest
 
-from mb_eth.eth import eth_block
+from mb_ethereum.eth import eth_block
 
 
 @pytest.mark.infura

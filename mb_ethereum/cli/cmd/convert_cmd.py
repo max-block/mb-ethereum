@@ -1,7 +1,7 @@
 import click
 
-from mb_eth.cli.helpers import print_json
-from mb_eth.eth import eth_utils
+from mb_ethereum.cli.helpers import print_json
+from mb_ethereum.eth import eth_utils
 
 
 @click.command(name="convert", help="Convert value between wei, gwei, ether")
