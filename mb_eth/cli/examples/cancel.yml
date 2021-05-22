@@ -1,0 +1,6 @@
+# Cancel a pending tx by increasing it's gas price and replacing to=from, gas=21000, value=0, data=0x
+tx_hash: "0xd03cade221127e67672fd7c36e9475edf19356f7b1a39c6321f47be871cef6b6"
+private_key: "0xf36f387dc34643abe7133b338967a8b6cecb7b719049dc1bedcc5cd80ccaef2a"
+gas_price: 50 gwei
+chain_id: 5 # optional, default=1
+node: https://goerli.prylabs.net

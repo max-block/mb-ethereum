@@ -1,0 +1,14 @@
+# Transfer all ether and listed tokens from accounts with listed private_keys to one recipient
+recipient: "0x1323365EC6ee6506Ae6d796d15fdC085c001C35C"
+private_keys: |
+  0xf36f387dc34643abe7133b338967a8b6cecb7b719049dc1bedcc5cd80ccaef2a
+  0xf8827fd10e20f2a06854d246b3aae3280919f9c634ec6c17f5d95e6c52b74b0e
+  0x32e1600436746aabd0672291849038e0d1450b8cb10048cef0f5de92adeb3fce
+gas_price: 50 gwei
+chain_id: 5 # optional, default=1
+nodes: |
+  http://localhost:8545
+  http://127.0.0.1:8545
+# tokens: | not implemented yet
+#   token1_address
+#   token2_address

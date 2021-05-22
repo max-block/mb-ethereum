@@ -1,0 +1,10 @@
+# Sign a tx
+from: "0x202EF8BDBa8A6AE4eFf89F6E8F9fceD2352B8760"
+private_key: "0xf36f387dc34643abe7133b338967a8b6cecb7b719049dc1bedcc5cd80ccaef2a"
+to: "0x9ecF07d003C4Ef6C820Ab511f49822099BC823Da" # optional
+gas_price: 12 gwei
+gas: 22000 # optional, default=21000
+nonce: 0
+data: "0x123" # optional
+value: 1 ether # optional, default=0
+chain_id: 5777 # optional, default=1

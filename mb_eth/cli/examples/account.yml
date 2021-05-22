@@ -1,0 +1,23 @@
+addresses: |
+  0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE # Binance
+  0xfbb1b73c4f0bda4f67dca266ce6ef42f520fbb98 # Bittrex
+
+tokens: |
+  0xdac17f958d2ee523a2206206994597c13d831ec7 # USDT
+  0x514910771af9ca656af840dff83e8264ecf986ca # LINK
+
+nodes: |
+  https://api.mycryptoapi.com/eth
+  https://web3.1inch.exchange/
+  https://cloudflare-eth.com/
+  https://mainnet-nethermind.blockscout.com/
+  https://nodes.mewapi.io/rpc/eth
+
+#proxies: | # optional
+#  http://123.123.123.123:1111
+#  http://usr:pass@123.123.123.124:1111
+#  socks5://usr:pass@123.123.123.125:1111
+
+check_etherscan_token_usd: yes # optional, default=yes
+check_nonce: yes # optional, default=yes
+check_eth_balance: yes # optional, default=yes

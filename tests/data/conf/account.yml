@@ -1,0 +1,10 @@
+addresses: |
+  0x89d9c37F791cC913E3c8746F8C18c26a2a228b1F
+  0x2B5115229b9462F325633552385F595e5E57f62b
+
+tokens: |
+  0xd2d6592d8afda663a1ee5ad7e3e5b52173d648ac
+
+nodes: http://localhost:8545
+check_nonce: yes
+check_eth_balance: yes

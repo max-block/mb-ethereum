@@ -1,0 +1,5 @@
+method: web3_clientVersion
+params: '[]' # as string, must be a list of values, optional
+#node: https://goerli.prylabs.net
+node: http://127.0.0.1:8545
+id: 1 # optional, default=1

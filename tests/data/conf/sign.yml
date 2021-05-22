@@ -1,0 +1,9 @@
+from: "0x89d9c37F791cC913E3c8746F8C18c26a2a228b1F"
+private_key: "0x43284edec641b01e23716547dc3d5505f9f832df587f7e963c622a1927f0acd9"
+to: "0x2B5115229b9462F325633552385F595e5E57f62b" # optional
+gas_price: 12 gwei
+gas: 22000 # optional, default=21000
+nonce: 0
+data: "0x123" # optional
+value: 1 ether # optional, default=0
+chain_id: 5777 # optional, default=1

@@ -1,0 +1,4 @@
+tx_hash: "0x129539d5c994afea5a52560a7479c027364726f44db0ff1771ae8df0c17e708e"
+private_key: "0x43284edec641b01e23716547dc3d5505f9f832df587f7e963c622a1927f0acd9"
+gas_price: 50 gwei
+node: http://localhost:8545

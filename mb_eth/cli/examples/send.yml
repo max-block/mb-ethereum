@@ -1,0 +1,38 @@
+# Send txs
+accounts:
+  - from: "0x9ecF07d003C4Ef6C820Ab511f49822099BC823Da"
+    txs:
+      - to: "0x202EF8BDBa8A6AE4eFf89F6E8F9fceD2352B8760"
+        gas_price: 17 gwei # optional, if not set gas_price will be global
+        value: 0.01 ether
+      - to: "0x202EF8BDBa8A6AE4eFf89F6E8F9fceD2352B8760"
+        value: 0.02 ether
+
+  - from: "0x785D11A7e81c0098Ed923F9aD1FB454440F69C3A"
+    txs:
+      - to: "0x202EF8BDBa8A6AE4eFf89F6E8F9fceD2352B8760"
+        value: 0.03 ether
+      - to: "0x202EF8BDBa8A6AE4eFf89F6E8F9fceD2352B8760"
+        gas: 122000 # optional, default=21000
+        data: "0x123456" # optional
+
+  - from: "0x202EF8BDBa8A6AE4eFf89F6E8F9fceD2352B8760"
+    txs:
+      - to: "0x932706a06bA455512e4eE29fA87013378EE0ED3D" # token contract address
+        gas: 100000
+        value: 0
+        erc20_transfer:
+          recipient: "0x9ecF07d003C4Ef6C820Ab511f49822099BC823Da"
+          value: 123 MB-ETH
+
+private_keys: |
+  0xf8827fd10e20f2a06854d246b3aae3280919f9c634ec6c17f5d95e6c52b74b0e
+  0x32e1600436746aabd0672291849038e0d1450b8cb10048cef0f5de92adeb3fce
+  0xf36f387dc34643abe7133b338967a8b6cecb7b719049dc1bedcc5cd80ccaef2a
+
+
+gas_price: 12 gwei # it's a global gas price, but tx.gas_price has priotiry
+gas: 10000 # optional, it's a global gas, but tx.gas has priotiry. If nothing is set, gas = 21000
+value: 0.1 ether # optional. It's a global value, but tx.value has priority. If nothing is set, value = 0
+chain_id: 5 # optional, default=1
+nodes: https://goerli.prylabs.net

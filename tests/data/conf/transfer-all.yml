@@ -1,0 +1,8 @@
+# Transfer all ether and listed tokens from accounts with listed private_keys to one recipient
+recipient: "0x89d9c37F791cC913E3c8746F8C18c26a2a228b1F"
+private_keys: |
+  0x3b530e5675f08000517359a1fec606009873226606d9c76b60c656b3223b6fcf
+  0x0921779abeef8b740d6d302af2a125aeef5b3406fdbcd0ed3fc4fb01d54057fb
+  0x9e4d6a10764a728f52143663e2b498dc2278508a4118b10b3a9e4db9f636a436
+gas_price: 50 gwei
+nodes: http://localhost:8545

@@ -1,0 +1,6 @@
+nodes: |
+  https://api.mycryptoapi.com/eth # comments can be here
+  https://web3.1inch.exchange/
+  https://cloudflare-eth.com/
+  https://mainnet-nethermind.blockscout.com/
+  https://nodes.mewapi.io/rpc/eth
