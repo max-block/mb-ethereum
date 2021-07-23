@@ -32,24 +32,33 @@ class BaseCmdConfig(BaseModel):
 _jinja_env = Environment(autoescape=True)
 
 
+def insert_jinja_env(v: str) -> str:
+    try:
+        ast = _jinja_env.parse(v)
+        envs = meta.find_undeclared_variables(ast)
+        if envs:
+            data = {}
+            for env in envs:
+                if not os.getenv(env):
+                    click.secho(f"can't get environment variable {env}", err=True, fg="red")
+                    exit(1)
+                data[env] = os.getenv(env)
+            template = Template(v)
+            return template.render(data)
+        return v
+    except TemplateSyntaxError as err:
+        click.secho(f"jinja syntax error: {str(err)}", err=True, fg="red")
+        click.secho(v)
+        exit(1)
+
+
 def env_validator(v):
     if isinstance(v, str):
-        try:
-            ast = _jinja_env.parse(v)
-            envs = meta.find_undeclared_variables(ast)
-            if envs:
-                data = {}
-                for env in envs:
-                    if not os.getenv(env):
-                        click.secho(f"can't get environment variable {env}", err=True, fg="red")
-                        exit(1)
-                    data[env] = os.getenv(env)
-                template = Template(v)
-                return template.render(data)
-        except TemplateSyntaxError as err:
-            click.secho(f"jinja syntax error: {str(err)}", err=True, fg="red")
-            click.secho(v)
-            exit(1)
+        return insert_jinja_env(v)
+
+    if isinstance(v, list) and len(v) and isinstance(v[0], str):
+        return [insert_jinja_env(x) for x in v]
+
     return v
 
 
