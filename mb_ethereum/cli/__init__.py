@@ -2,6 +2,7 @@ from typing import Tuple
 
 import click
 from click import Context
+from dotenv import load_dotenv
 
 from mb_ethereum import __version__
 from mb_ethereum.cli.cmd import (
@@ -27,6 +28,8 @@ from mb_ethereum.cli.cmd import (
     speedup_cmd,
     transfer_all_cmd,
 )
+
+load_dotenv()
 
 
 @click.group()

@@ -44,6 +44,7 @@ setuptools.setup(
         "beautifulsoup4==4.9.3",
         "rlp==2.0.1",
         "cachetools==4.2.2",
+        "python-dotenv==0.18.0",
         "mb-commons",
     ],
     extras_require={
@@ -53,7 +54,6 @@ setuptools.setup(
             "pre-commit==2.13.0",
             "wheel==0.36.2",
             "twine==3.4.2",
-            "python-dotenv==0.18.0",
         ],
     },
     entry_points={"console_scripts": ["mb-ethereum = mb_ethereum.cli:cli"]},
