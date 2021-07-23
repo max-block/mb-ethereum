@@ -1,5 +1,5 @@
 [tool.black]
-line-length = 130
+line-length = 120
 target_version = ["py39"]
 include = '''
 (
@@ -20,10 +20,14 @@ exclude = '''
 '''
 
 [tool.isort]
-line_length = 130
+line_length = 120
 use_parentheses = "True"
 include_trailing_comma = "True"
 multi_line_output = 3
 default_section = "THIRDPARTY"
-known_first_party = "mb_eth"
+known_first_party = "mb_ethereum"
 sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+
+[tool.mypy]
+python_version = 3.9
+warn_no_return = false

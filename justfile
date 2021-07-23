@@ -1,4 +1,4 @@
-VERSION = $(shell python3 setup.py --version | tr '+' '-')
+version := `python3 setup.py --version | tr '+' '-'`
 
 clean:
 	rm -rf .pytest_cache build dist *.egg-info
@@ -10,8 +10,8 @@ dist: clean
 
 upload: dist
 	twine upload dist/*
-	git tag -a 'v$(VERSION)' -m 'v$(VERSION)'
-	git push origin v$(VERSION)
+	git tag -a 'v{{version}}' -m 'v{{version}}'
+	git push origin v{{version}}
 
 
 ganache:
