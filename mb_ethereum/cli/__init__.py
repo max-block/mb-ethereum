@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 from typing import Tuple
 
 import click
@@ -29,7 +31,9 @@ from mb_ethereum.cli.cmd import (
     transfer_all_cmd,
 )
 
-load_dotenv()
+_env_file = Path(os.getcwd()).joinpath(".env")
+if _env_file.is_file():
+    load_dotenv(_env_file)
 
 
 @click.group()
