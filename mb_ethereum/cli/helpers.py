@@ -127,10 +127,9 @@ def print_config_and_exit(ctx: Context, config):
 def file_validator(v: str, config_path: str):
     if len(v) > 100:
         return v
-    if v.startswith("/"):
-        file = Path(v)
-        if file.exists():
-            return file.read_text()
+    file = Path(v)
+    if file.exists():
+        return file.read_text()
     else:
         config_file = Path(config_path)
         file = config_file.parent.joinpath(v)

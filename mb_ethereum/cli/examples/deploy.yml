@@ -6,5 +6,5 @@ contract_bin: "60806040523480156200001157600080fd5b5060405162000d5338038062000d5
 # contract_bin = "./build/Token.bin" # it can be a file path
 constructor_types: "['string', 'uint256']" # optional, as string
 constructor_values: "['MB-ETH', 1000000000000000000000000]" # optional, as string
-chain_id: 5 # optiona, default=1
+chain_id: 5 # optional, default=1
 node: https://goerli.prylabs.net
