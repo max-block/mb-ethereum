@@ -1,0 +1,5 @@
+def test_decode_bytes(cli):
+    types = '["address", "uint256"]'
+    data = "00000000000000000000000080d024577781b589744d340cbfc5e85c5b526e3f0000000000000000000000000000000000000000000000000000000006772d1d"  # noqa
+    res = cli("decode-bytes", types, data)
+    assert res == ["0x80d024577781b589744d340cbfc5e85c5b526e3f", 108473629]

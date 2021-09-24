@@ -37,7 +37,7 @@ setuptools.setup(
         "PyYAML==5.4.1",
         "pydantic==1.8.2",
         "Jinja2==3.0.1",
-        "eth-account==0.5.5",
+        "eth-account==0.5.6",
         "websocket-client==1.2.1",
         "web3==5.23.1",
         "toml==0.10.2",
@@ -50,7 +50,7 @@ setuptools.setup(
     extras_require={
         "dev": [
             "pytest==6.2.5",
-            "pytest-xdist==2.3.0",
+            "pytest-xdist==2.4.0",
             "pre-commit==2.15.0",
             "wheel==0.37.0",
             "twine==3.4.2",

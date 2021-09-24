@@ -14,6 +14,7 @@ from mb_ethereum.cli.cmd import (
     contract_signatures_cmd,
     contract_tx_cmd,
     convert_cmd,
+    decode_bytes_cmd,
     decode_raw_tx_cmd,
     decode_tx_input_cmd,
     deploy_cmd,
@@ -54,6 +55,7 @@ cli.add_command(contract_call_cmd.cli)
 cli.add_command(contract_signatures_cmd.cli)
 cli.add_command(contract_tx_cmd.cli)
 cli.add_command(convert_cmd.cli)
+cli.add_command(decode_bytes_cmd.cli)
 cli.add_command(decode_raw_tx_cmd.cli)
 cli.add_command(decode_tx_input_cmd.cli)
 cli.add_command(deploy_cmd.cli)
