@@ -1,3 +1,4 @@
+set dotenv-load := false
 version := `python3 setup.py --version | tr '+' '-'`
 
 clean:
@@ -8,7 +9,7 @@ dist: clean
 	python3 setup.py sdist bdist_wheel
 
 
-upload: dist
+publish: dist
 	twine upload dist/*
 	git tag -a 'v{{version}}' -m 'v{{version}}'
 	git push origin v{{version}}
@@ -26,3 +27,7 @@ ganache-token:
 
 ganache-stop:
 	pkill -f ganache-cli
+
+
+dump-help:
+    mb-ethereum dump-help > README.txt

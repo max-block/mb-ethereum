@@ -71,3 +71,18 @@ cli.add_command(sign_cmd.cli)
 cli.add_command(solc_cmd.cli)
 cli.add_command(speedup_cmd.cli)
 cli.add_command(transfer_all_cmd.cli)
+
+
+def recursive_help(command, parent=None):
+    ctx = click.core.Context(command, info_name=command.name, parent=parent)
+    click.echo(command.get_help(ctx))
+    click.echo()
+    commands = getattr(command, "commands", {})
+    for sub in commands.values():
+        recursive_help(sub, ctx)
+        click.echo("-------------------------\n")
+
+
+@cli.command(help="Dump help for all subcommands")
+def dump_help():
+    recursive_help(cli)
