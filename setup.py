@@ -31,10 +31,10 @@ setuptools.setup(
     python_requires=">=3.9",
     packages=["mb_ethereum"],
     install_requires=[
-        "click==8.0.1",
-        "click-aliases==1.0.1",
+        "click~=8.0.1",
+        "click-aliases~=1.0.1",
         "halo==0.0.31",
-        "PyYAML==5.4.1",
+        "PyYAML~=5.4.1",
         "pydantic==1.8.2",
         "Jinja2~=3.0",
         "eth-account==0.5.6",
