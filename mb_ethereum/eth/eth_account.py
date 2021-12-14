@@ -6,7 +6,7 @@ from eth_account.hdaccount import Mnemonic
 from eth_keys import KeyAPI
 from eth_utils import decode_hex
 from eth_utils import is_address as is_address_
-from mb_commons import Result
+from mb_std import Result
 
 from mb_ethereum.eth import eth_rpc
 

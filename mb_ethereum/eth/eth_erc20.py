@@ -5,7 +5,7 @@ from typing import Optional, Tuple
 from eth_abi import decode_abi, decode_single, encode_abi
 from eth_typing import HexStr
 from eth_utils import to_bytes, to_hex
-from mb_commons import Result
+from mb_std import Result
 from web3 import Web3
 
 from mb_ethereum.eth import eth_abi, eth_rpc

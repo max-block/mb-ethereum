@@ -2,7 +2,7 @@ import math
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 
-from mb_commons import Result, md
+from mb_std import Result, md
 
 from mb_ethereum.eth import eth_rpc
 

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Any, Optional, Union
 
 import websocket
-from mb_commons import Result, hrequest, md
+from mb_std import Result, hrequest, md
 from pydantic import BaseModel
 
 

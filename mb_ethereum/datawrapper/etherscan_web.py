@@ -5,7 +5,7 @@ from decimal import Decimal
 from typing import Optional
 
 from bs4 import BeautifulSoup
-from mb_commons import FIREFOX_USER_AGENT, Result, hrequest, md
+from mb_std import FIREFOX_USER_AGENT, Result, hrequest, md
 
 
 @dataclass

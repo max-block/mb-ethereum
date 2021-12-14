@@ -14,7 +14,7 @@ import toml
 import yaml
 from click import Context
 from jinja2 import Environment, Template, TemplateSyntaxError, meta
-from mb_commons import shell, str_to_list
+from mb_std import shell, str_to_list
 from pydantic import BaseModel, ValidationError, validator
 
 from mb_ethereum.eth import eth_rpc

@@ -1,24 +1,21 @@
 import json
-import os
 import time
 from pathlib import Path
 from subprocess import Popen
 
 import pytest
 from click.testing import CliRunner
-from dotenv import load_dotenv
-
-load_dotenv()
+from mb_std.dotenv import get_dotenv
 
 
 @pytest.fixture
 def ws_node():
-    return os.getenv("WS_NODE")
+    return get_dotenv("WS_NODE")
 
 
 @pytest.fixture
 def etherscan_key():
-    return os.getenv("ETHERSCAN_KEY")
+    return get_dotenv("ETHERSCAN_KEY")
 
 
 @pytest.fixture
@@ -79,7 +76,7 @@ def private_2():
 
 @pytest.fixture
 def infura():
-    infura = os.getenv("INFURA_PROJECT_ID")
+    infura = get_dotenv("INFURA_PROJECT_ID")
 
     def _infura(network="mainnet", ws=False):
         if ws:

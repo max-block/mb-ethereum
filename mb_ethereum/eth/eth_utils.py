@@ -5,7 +5,7 @@ from typing import Union
 import pydash
 from eth_typing import HexStr
 from eth_utils import to_bytes
-from mb_commons import number_with_separator
+from mb_std import number_with_separator
 from pydantic import BaseModel
 from web3 import Web3
 

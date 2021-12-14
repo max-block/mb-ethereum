@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 
 import pydash
-from mb_commons import Result, hrequest
+from mb_std import Result, hrequest
 
 
 @dataclass

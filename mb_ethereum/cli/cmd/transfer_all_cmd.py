@@ -2,7 +2,7 @@ import random
 
 import click
 import pydash
-from mb_commons import md, str_to_list
+from mb_std import md, str_to_list
 from pydantic import StrictStr, validator
 
 from mb_ethereum.cli.helpers import BaseCmdConfig, fatal, parse_config, print_json

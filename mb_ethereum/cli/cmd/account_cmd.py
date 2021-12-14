@@ -4,7 +4,7 @@ from typing import Optional
 
 import click
 from halo import Halo
-from mb_commons import ParallelTasks, str_to_list
+from mb_std import ParallelTasks, str_to_list
 from pydantic import StrictStr, validator
 
 from mb_ethereum.cli.helpers import BaseCmdConfig, fatal, parse_config, print_config_and_exit, print_json
