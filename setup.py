@@ -28,23 +28,22 @@ def load_requirements(f_name: str) -> list:
 setuptools.setup(
     name="mb-ethereum",
     version=find_version("mb_ethereum/__init__.py"),
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     packages=["mb_ethereum"],
     install_requires=[
         "click~=8.0.1",
         "click-aliases~=1.0.1",
         "halo==0.0.31",
         "PyYAML~=5.4.1",
-        "pydantic==1.8.2",
         "Jinja2~=3.0",
         "eth-account==0.5.6",
-        "websocket-client==1.2.1",
-        "web3==5.25.0",
+        "websocket-client==1.2.3",
+        "web3==5.26.0",
         "toml==0.10.2",
         "beautifulsoup4==4.10.0",
         "rlp==2.0.1",
         "cachetools==4.2.2",
-        "mb-std~=0.1.0",
+        "mb-std~=0.2.0",
     ],
     extras_require={
         "dev": [

@@ -1,6 +1,5 @@
 import re
 from decimal import Decimal
-from typing import Union
 
 import pydash
 from eth_typing import HexStr
@@ -19,7 +18,7 @@ def parse_addresses(data: str) -> list[str]:
     return pydash.uniq(result)
 
 
-def to_wei(value: Union[str, int, Decimal]) -> int:
+def to_wei(value: str | int | Decimal) -> int:
     if isinstance(value, int):
         return value
     elif isinstance(value, Decimal):
@@ -43,7 +42,7 @@ def to_wei(value: Union[str, int, Decimal]) -> int:
         raise ValueError(f"value has a wrong type: {type(value)}")
 
 
-def to_wei_token(value: Union[str, int, Decimal], symbol: str, decimals: int) -> int:
+def to_wei_token(value: str | int | Decimal, symbol: str, decimals: int) -> int:
     if isinstance(value, int):
         return value
     elif isinstance(value, Decimal):
@@ -81,7 +80,7 @@ def get_chain_name(chain_id) -> str:
     return chain_id
 
 
-def to_human_readable_tx(tx: Union[dict, BaseModel]) -> dict:
+def to_human_readable_tx(tx: dict | BaseModel) -> dict:
     if isinstance(tx, BaseModel):
         tx = tx.dict()
     tx["human_readable"] = {}

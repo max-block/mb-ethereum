@@ -2,7 +2,6 @@ import json
 import re
 from dataclasses import dataclass
 from decimal import Decimal
-from typing import Optional
 
 from bs4 import BeautifulSoup
 from mb_std import FIREFOX_USER_AGENT, Result, hrequest, md
@@ -14,7 +13,7 @@ class ParityTrace:
     class Trace:
         call_type: str
         from_: str
-        to: Optional[str]
+        to: str | None
         gas: int
         value: int
         input: str
@@ -31,11 +30,11 @@ class EtherscanToken:
     erc: str  # erc20 | erc721
     symbol: str
     total_supply: Decimal
-    decimals: Optional[int]
+    decimals: int | None
     holders_count: int
     transfers_count: int
-    price_usd: Optional[Decimal]
-    market_cap_usd: Optional[Decimal]
+    price_usd: Decimal | None
+    market_cap_usd: Decimal | None
     site: str
 
 
@@ -45,7 +44,7 @@ class EtherscanInfo:
     tags: list[str]
     site: str
     tokens_usd: Decimal
-    token: Optional[EtherscanToken]
+    token: EtherscanToken | None
 
 
 def get_address_info(address: str, timeout=10, proxy=None) -> Result[EtherscanInfo]:

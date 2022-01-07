@@ -1,6 +1,6 @@
 import string
 from dataclasses import dataclass
-from typing import Optional, Tuple
+from typing import Tuple
 
 from eth_abi import decode_abi, decode_single, encode_abi
 from eth_typing import HexStr
@@ -82,10 +82,9 @@ def get_decimals(node: str, address: str, timeout=10, proxy=None) -> Result[int]
 def decode_transfer_input_data(input_data: str) -> Result[Tuple[str, int]]:
     input_data = input_data.lower()
     if input_data.startswith(TRANSFER_METHOD):
-        # noinspection PyBroadException
         try:
             input_data = input_data.replace(TRANSFER_METHOD, "")
-            return Result(ok=decode_abi(["address", "uint256"], Web3.toBytes(hexstr=input_data)))
+            return Result(ok=decode_abi(["address", "uint256"], Web3.toBytes(hexstr=HexStr(input_data))))
         except Exception as err:
             return Result(error=f"exception: {str(err)}")
     return Result(error="bad_request")
@@ -100,13 +99,11 @@ def get_erc20_transfer_event_logs(
     node: str,
     from_block: int,
     to_block: int,
-    token: Optional[str] = None,
+    token: str | None = None,
     proxy=None,
     timeout=30,
 ) -> Result[list[ERC20TransferEventLog]]:
-    params = [
-        {"topics": [TRANSFER_TOPIC], "fromBlock": hex(from_block), "toBlock": hex(to_block)},
-    ]
+    params = [{"topics": [TRANSFER_TOPIC], "fromBlock": hex(from_block), "toBlock": hex(to_block)}]
     if token:
         params[0]["address"] = token
     res = eth_rpc.rpc_call(node=node, method="eth_getLogs", params=params, proxy=proxy, timeout=timeout)

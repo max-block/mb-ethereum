@@ -1,6 +1,5 @@
 import random
 import sys
-from typing import Optional
 
 import click
 from halo import Halo
@@ -17,8 +16,8 @@ TIMEOUT = 10
 class Config(BaseCmdConfig):
     addresses: list[StrictStr]
     nodes: list[StrictStr]
-    proxies: Optional[list[StrictStr]] = None
-    tokens: Optional[list[StrictStr]] = None
+    proxies: list[StrictStr] | None = None
+    tokens: list[StrictStr] | None = None
     check_nonce: bool = True
     check_eth_balance: bool = True
     check_etherscan_token_usd: bool = True
@@ -36,7 +35,7 @@ class Config(BaseCmdConfig):
         return random.choice(self.nodes)
 
     @property
-    def random_proxy(self) -> Optional[str]:
+    def random_proxy(self) -> str | None:
         return random.choice(self.proxies) if self.proxies else None
 
 

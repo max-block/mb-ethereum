@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Optional
 
 from eth_account import Account
 from eth_account.hdaccount import Mnemonic
@@ -22,7 +21,7 @@ class GeneratedAccount:
     private_key: str
 
 
-def is_address(address: Optional[str]) -> bool:
+def is_address(address: str | None) -> bool:
     return is_address_(address)
 
 
@@ -61,7 +60,7 @@ def generate_mnemonic(num_words=24) -> str:
     return Mnemonic("english").generate(num_words=num_words)
 
 
-def generate_accounts(*, mnemonic: Optional[str] = None, num_words=24, limit=12) -> list[GeneratedAccount]:
+def generate_accounts(*, mnemonic: str | None = None, num_words=24, limit=12) -> list[GeneratedAccount]:
     result: list[GeneratedAccount] = []
     if not mnemonic:
         mnemonic = generate_mnemonic(num_words)

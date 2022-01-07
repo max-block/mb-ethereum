@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any
 
 import click
 import pydash
@@ -11,13 +11,13 @@ from mb_ethereum.eth import eth_abi, eth_account, eth_rpc, eth_tx, eth_utils
 
 class Config(BaseCmdConfig):
     private_key: StrictStr
-    nonce: Optional[int] = None
+    nonce: int | None = None
     gas: int
     gas_price: int
     value: int = 0
     contract_bin: StrictStr
-    constructor_types: Optional[StrictStr]
-    constructor_values: Optional[StrictStr]
+    constructor_types: StrictStr | None
+    constructor_values: StrictStr | None
     chain_id: int = 1
     node: StrictStr
 

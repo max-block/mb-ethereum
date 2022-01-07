@@ -1,6 +1,5 @@
 import json
 import re
-from typing import Optional
 
 import click
 import yaml
@@ -13,7 +12,7 @@ from mb_ethereum.eth import eth_rpc
 class Config(BaseCmdConfig):
     method: StrictStr
     node: StrictStr
-    params: Optional[list]
+    params: list | None
     id: int = 1
 
     @validator("params", pre=True)

@@ -1,5 +1,3 @@
-from typing import Optional
-
 import click
 from pydantic import Field, StrictStr, validator
 
@@ -10,12 +8,12 @@ from mb_ethereum.eth import eth_account, eth_tx, eth_utils
 class Config(BaseCmdConfig):
     from_: StrictStr = Field(..., alias="from")
     private_key: StrictStr
-    to: Optional[StrictStr]
+    to: StrictStr | None
     gas_price: int = 21000
     gas: int
     nonce: int
-    data: Optional[StrictStr] = None
-    value: Optional[int] = None
+    data: StrictStr | None = None
+    value: int | None = None
     chain_id: int = 1
 
     @validator("gas_price", "value", pre=True)

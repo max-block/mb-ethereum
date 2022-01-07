@@ -1,6 +1,6 @@
 import string
 from dataclasses import dataclass
-from typing import Any, Dict, Union
+from typing import Any, Dict
 
 import eth_abi
 import eth_utils
@@ -62,7 +62,7 @@ def decode_function_input(contract_abi: dict, tx_input: str) -> DecodedFunctionI
     return DecodedFunctionInput(function_abi=func.abi, params=params)
 
 
-def encode_function_input(abi: Union[dict, list], fn_name: str, args: list) -> str:
+def encode_function_input(abi: dict | list, fn_name: str, args: list) -> str:
     if isinstance(abi, list):
         abi = pydash.find(
             abi,

@@ -6,7 +6,7 @@ from decimal import Decimal
 from enum import Enum
 from json import JSONEncoder
 from pathlib import Path
-from typing import Callable, TypeVar, Union
+from typing import Callable, TypeVar
 
 import click
 import pydash
@@ -86,7 +86,7 @@ def parse_config(ctx: Context, config_path: str, config_cls: Callable[..., Confi
         exit(1)
 
 
-def parse_nodes(value: Union[list[str], str]) -> list[str]:
+def parse_nodes(value: list[str] | str) -> list[str]:
     if isinstance(value, list):
         return pydash.union(value)
     elif isinstance(value, str):
@@ -169,5 +169,5 @@ class CustomJSONEncoder(JSONEncoder):
         return JSONEncoder.default(self, o)
 
 
-def print_json(obj: Union[dict, list, BaseModel]):
+def print_json(obj: dict | list | BaseModel):
     click.echo(json.dumps(obj, indent=2, cls=CustomJSONEncoder))

@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from logging import Logger
 from threading import Thread
-from typing import Callable, Optional
+from typing import Callable
 from urllib.parse import urlparse
 
 import pydash
@@ -26,11 +26,11 @@ class Tx:
     v: int
     r: str
     s: str
-    tx_hash_at: Optional[datetime]  # when tx_hash was received
+    tx_hash_at: datetime | None  # when tx_hash was received
     tx_at: datetime  # when tx was received
 
     def raw_tx(self) -> str:
-        pass
+        raise NotImplementedError
         # return eth_tx.encode_raw_tx_with_signature(
         #     nonce=self.nonce,
         #     gas_price=self.gas_price,
@@ -54,17 +54,17 @@ class Block:
 @dataclass
 class TxStats:
     tx_hash_count: int = 0  # how many tx_hashed were received
-    tx_hash_last_at: Optional[datetime] = None  # how many tx_hashes were received
+    tx_hash_last_at: datetime | None = None  # how many tx_hashes were received
     tx_count: int = 0  # how many txs were received
-    tx_last_at: Optional[datetime] = None  # when the last tx was received
+    tx_last_at: datetime | None = None  # when the last tx was received
 
 
 @dataclass
 class BlockStats:
     block_number_count: int = 0
-    block_number_last_at: Optional[datetime] = None
+    block_number_last_at: datetime | None = None
     block_count: int = 0
-    block_last_at: Optional[datetime] = None
+    block_last_at: datetime | None = None
 
 
 class TxPoolMonitor(WebSocketApp):
@@ -72,28 +72,22 @@ class TxPoolMonitor(WebSocketApp):
         self,
         log: Logger,
         ws_node: str,
-        group: Optional[str] = None,
+        group: str | None = None,
         monitor_pending_txs=False,
         monitor_blocks=False,
-        on_tx_hash: Optional[Callable[[str], None]] = None,
-        on_tx: Optional[Callable[[Tx], None]] = None,
-        on_block_number: Optional[Callable[[int], None]] = None,
-        on_block: Optional[Callable[[Block], None]] = None,
-        on_error: Optional[Callable] = None,
-        on_close: Optional[Callable] = None,
+        on_tx_hash: Callable[[str], None] | None = None,
+        on_tx: Callable[[Tx], None] | None = None,
+        on_block_number: Callable[[int], None] | None = None,
+        on_block: Callable[[Block], None] | None = None,
+        on_error: Callable | None = None,
+        on_close: Callable | None = None,
         timeout=10,
         debug=False,
     ):
         setdefaulttimeout(timeout)
         if debug:
             enableTrace(True)
-        super().__init__(
-            ws_node,
-            on_open=self.on_open,
-            on_message=self.on_message,
-            on_error=on_error,
-            on_close=on_close,
-        )
+        super().__init__(ws_node, on_open=self.on_open, on_message=self.on_message, on_error=on_error, on_close=on_close)
         self.log = log
         self.ws_node = ws_node
         self.group = group

@@ -1,7 +1,7 @@
 import json
 import socket
 from dataclasses import dataclass
-from typing import Any, Optional, Union
+from typing import Any
 
 import websocket
 from mb_std import Result, hrequest, md
@@ -27,15 +27,15 @@ class TxReceipt:
     tx_index: int
     block_number: int
     from_address: str
-    to_address: Optional[str]
-    contract_address: Optional[str]
-    status: Optional[int]
+    to_address: str | None
+    contract_address: str | None
+    status: int | None
 
 
 class TxData(BaseModel):
-    block_number: Optional[int]  # for pending tx it can be none
+    block_number: int | None  # for pending tx it can be none
     from_: str
-    to: Optional[str]
+    to: str | None
     gas: int
     gas_price: int
     value: int
@@ -55,7 +55,7 @@ def rpc_call(*, node: str, method: str, params: list[Any], id_=1, timeout=10, pr
         return _ws_call(node, data, timeout)
 
 
-def _http_call(node: str, data: dict, timeout: int, proxy: Optional[str]) -> Result:
+def _http_call(node: str, data: dict, timeout: int, proxy: str | None) -> Result:
     res = hrequest(node, method="POST", proxy=proxy, timeout=timeout, params=data, json_params=True)
     try:
         if res.is_error():
@@ -267,9 +267,9 @@ def eth_call(node: str, to: str, data: str, timeout=10, proxy=None) -> Result:
 def eth_estimate_gas(
     node: str,
     from_: str,
-    to: Optional[str] = None,
-    value: Optional[int] = 0,
-    data: Optional[str] = None,
+    to: str | None = None,
+    value: int | None = 0,
+    data: str | None = None,
     timeout=10,
     proxy=None,
 ) -> Result[int]:
@@ -301,7 +301,7 @@ def eth_gas_price(node: str, timeout=10, proxy=None) -> Result[int]:
         return Result(error=f"exception: {str(e)}")
 
 
-def eth_syncing(node: str, timeout=10, proxy=None) -> Result[Union[bool, dict]]:
+def eth_syncing(node: str, timeout=10, proxy=None) -> Result[bool | dict]:
     res = rpc_call(node=node, method="eth_syncing", params=[], timeout=timeout, proxy=proxy)
     if res.is_error():
         return res

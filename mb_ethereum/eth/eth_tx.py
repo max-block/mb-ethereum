@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 import rlp
 from eth_utils import keccak
@@ -37,7 +37,7 @@ class RPLTransaction(rlp.Serializable):
 class DecodedRawTx(BaseModel):
     tx_hash: str
     from_: str
-    to: Optional[str]
+    to: str | None
     nonce: int
     gas: int
     gas_price: int
@@ -57,9 +57,9 @@ def encode_raw_tx_with_signature(
     v: int,
     r: str,
     s: str,
-    data: Optional[str] = None,
-    value: Optional[int] = None,
-    to: Optional[str] = None,
+    data: str | None = None,
+    value: int | None = None,
+    to: str | None = None,
 ):
     if to:
         to = hex_to_bytes(to)  # type:ignore
@@ -80,9 +80,9 @@ def sign_tx(
     gas: int,
     private_key: str,
     chain_id: int,
-    data: Optional[str] = None,
-    value: Optional[int] = None,
-    to: Optional[str] = None,
+    data: str | None = None,
+    value: int | None = None,
+    to: str | None = None,
 ) -> SignedTx:
     tx: Dict[str, Any] = {"gas": gas, "gasPrice": gas_price, "nonce": nonce, "chainId": chain_id}
     if to:

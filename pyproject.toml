@@ -1,10 +1,10 @@
 [tool.black]
 line-length = 130
-target_version = ["py39"]
+target_version = ["py310"]
 include = '''
 (
     ^/tests/.*[.]py$
-  | ^/mb_eth/.*[.]py$
+  | ^/mb_ethereum/.*[.]py$
   | ^/setup[.]py
 )
 '''
@@ -29,5 +29,5 @@ known_first_party = "mb_ethereum"
 sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
 
 [tool.mypy]
-python_version = 3.9
+python_version = "3.10"
 warn_no_return = false

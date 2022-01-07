@@ -1,5 +1,5 @@
 import random
-from typing import Any, Optional, cast
+from typing import Any, cast
 
 import click
 import pydash
@@ -19,13 +19,13 @@ class Config(BaseCmdConfig):
                 recipient: StrictStr
                 value: str
 
-            to: Optional[StrictStr] = None
-            nonce: Optional[int] = None
-            gas: Optional[int]
-            gas_price: Optional[int] = None
-            data: Optional[StrictStr] = None
-            value: Optional[int] = None
-            erc20_transfer: Optional[ERC20Transfer] = None
+            to: StrictStr | None = None
+            nonce: int | None = None
+            gas: int | None
+            gas_price: int | None = None
+            data: StrictStr | None = None
+            value: int | None = None
+            erc20_transfer: ERC20Transfer | None = None
 
             @validator("value", "gas_price", pre=True)
             def to_wei_validator(cls, v):
@@ -36,9 +36,9 @@ class Config(BaseCmdConfig):
 
     accounts: list[Account]
     private_keys: list[StrictStr]
-    gas_price: Optional[int] = None
-    gas: Optional[int] = None
-    value: Optional[int] = None
+    gas_price: int | None = None
+    gas: int | None = None
+    value: int | None = None
     nodes: list[StrictStr]
     chain_id: int = 1
 
@@ -119,7 +119,7 @@ class TokenInfo(BaseModel):
 _token_infos: list[TokenInfo] = []
 
 
-def _get_data(config: Config, tx: Config.Account.Tx) -> Optional[str]:
+def _get_data(config: Config, tx: Config.Account.Tx) -> str | None:
     if tx.erc20_transfer:
         if not eth_account.is_address(tx.to):
             return fatal("tx.to must be a valid address for a erc20_transfer tx")

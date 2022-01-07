@@ -1,5 +1,3 @@
-from typing import Optional
-
 import click
 import yaml
 from pydantic import StrictStr, validator
@@ -22,7 +20,7 @@ class Config(BaseCmdConfig):
     gas: int
     gas_price: int
     value: int = 0
-    nonce: Optional[int] = None
+    nonce: int | None = None
     function_name: StrictStr
     function_args: StrictStr = ""
     node: StrictStr
